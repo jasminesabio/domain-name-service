@@ -211,7 +211,6 @@ const App = () => {
 				fetchMints();
 				setRecord('');
 				setDomain('');
-				alert("Domain minted! Check out your domain on testnet Opensea: https://testnets.opensea.io/collection/shefi-name-service-v2")
 			}
 		  } catch(error) {
 			console.log(error);
