@@ -24,7 +24,7 @@ contract Domains is ERC721URIStorage {
     mapping(string => string) public records;
     mapping(uint => string) public names;
 
-    constructor(string memory _tld) payable ERC721("Jasmine Name Service", "JNS") {
+    constructor(string memory _tld) payable ERC721("SheFi Name Service", "SheFi") {
         owner = payable(msg.sender);
         tld = _tld;
         console.log("%s name service deployed", _tld);
@@ -53,9 +53,9 @@ contract Domains is ERC721URIStorage {
         uint len = StringUtils.strlen(name);
         require(len > 0);
         if (len == 3) {
-            return 5 * 10**17;
+            return 1 * 10**17;
         } else if (len == 4) {
-            return 3 * 10**17;
+            return 1 * 10**17;
         } else {
             return 1 * 10**17;
         }
@@ -81,7 +81,7 @@ contract Domains is ERC721URIStorage {
                     abi.encodePacked(
                         '{"name": "',
                         _name,
-                        '", "description": "A domain on the Jasmine name service", "image": "data:image/svg+xml;base64,',
+                        '", "description": "A domain on the SheFi name service", "image": "data:image/svg+xml;base64,',
                         Base64.encode(bytes(finalSvg)),
                         '","length":"',
                         strLen,

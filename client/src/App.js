@@ -10,8 +10,8 @@ import { networks } from './utils/networks';
 
 const TWITTER_HANDLE = 'jasminesabio_';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
-const tld = '.jas';
-const CONTRACT_ADDRESS = '0x5f0513c811892B986FcD46521e0ad74bBBdE5667';
+const tld = '.shefi';
+const CONTRACT_ADDRESS = '0xe282d11fFA3E39340d9954537F7EBe1c6d197Cc4';
 
 const App = () => {
 
@@ -110,7 +110,7 @@ const App = () => {
 
 	const renderNotConnectedContainer = () => (
 		<div className="connect-wallet-container">
-			<img src="https://media4.giphy.com/media/xT9IglBTX4JAsRHH9K/giphy.gif?cid=790b761166fc088202b8f0d3f89441fb9eea8a89337230e1&rid=giphy.gif&ct=g.gif" alt="Vapor wave gif" />
+			<img src="https://uploads-ssl.webflow.com/61437c8283a3a804a6f05e2a/614942dba876da0b1a373422_logo-shefi%201.svg" alt="SheFi logo" />
 			<button onClick={connectWallet} className="cta-button connect-wallet-button">
 				Connect Wallet
 			</button>
@@ -140,6 +140,7 @@ const App = () => {
 
 				if (receipt.status === 1) {
 					console.log("Domain minted! https://mumbai.polygonscan.com/tx/"+tx.hash);
+					// alert("Domain minted! https://mumbai.polygonscan.com/tx/"+tx.hash);
 					
 					tx = await contract.setRecord(domain, record);
 					await tx.wait();
@@ -152,6 +153,7 @@ const App = () => {
 					
 					setRecord('');
 					setDomain('');
+					alert("Domain minted! Check out your domain on testnet Opensea: https://testnets.opensea.io/collection/shefi-name-service-v2")
 				} else {
 					alert("Transaction failed. Please try again.")
 				}
@@ -209,6 +211,7 @@ const App = () => {
 				fetchMints();
 				setRecord('');
 				setDomain('');
+				alert("Domain minted! Check out your domain on testnet Opensea: https://testnets.opensea.io/collection/shefi-name-service-v2")
 			}
 		  } catch(error) {
 			console.log(error);
@@ -316,8 +319,8 @@ const App = () => {
 				<div className="header-container">
 					<header>
             			<div className="left">
-              				<p className="title">⚡️ Jasmine Name Service</p>
-             	 			<p className="subtitle">Jas API on the blockchain!</p>
+              				<p className="title">⚡️ SheFi Name Service</p>
+             	 			{/* <p className="subtitle">SheFi API on the blockchain!</p> */}
             			</div>
 						<div className="right">
 							<img alt="Network logo" className="logo" src={network.includes("Polygon") ? polygonLogo : ethLogo} />
